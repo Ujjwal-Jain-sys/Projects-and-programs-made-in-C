@@ -39,29 +39,40 @@ void gradeChecker(float marks){
 
 int main(void) {
 
-  float marks = 0;
+  float marks = 0.0f;
   
   printf("\n*** Grade System ***\n");
   printf("\nEnter your marks[0-100]: ");
-  scanf("%f",&marks);
-  do{
-    printf("\ninvalid marks,\nEnter your marks again[0-100]: ");
-    scanf("%f",&marks);
-  }while(marks>100 || marks <0);
-  
-  printf("\nLoading your result in ");
-  for(int i = 3;i > 0;i--){
-    fflush(stdout);
-    usleep(500*1000);
-    printf(" %d",i);
-  }
-  printf("\n");
-  gradeChecker(marks);
-  if(marks>=33){
-    printf("You passed the exam\n");
+  if(scanf("%f",&marks)){
+    do{
+      printf("\ninvalid marks,\nEnter your marks again[0-100]: ");
+      scanf("%f",&marks);
+    }while(marks>100 || marks <0);
+    
+    printf("\nLoading your result in ");
+    for(int i = 3;i > 0;i--){
+      fflush(stdout);
+      usleep(500*1000);
+      printf(" %d",i);
+    }
+    printf("\n");
+    gradeChecker(marks);
+    if(marks>=33){
+      printf("You passed the exam\n");
+    }
+    else{
+      printf("You have failed,Better luck next time\n");
+    }
   }
   else{
-    printf("You have failed,Better luck next time\n");
+    printf("Invalid Input,Exiting the program\n");
+    printf("\nIn");
+    for(int i = 3;i > 0;i--){
+      fflush(stdout);
+      usleep(500*1000);
+      printf(" %d",i);
+    }
+    printf("\n");
   }
   return 0;
 }
