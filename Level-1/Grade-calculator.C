@@ -43,7 +43,8 @@ int main(void) {
   
   printf("\n*** Grade System ***\n");
   printf("\nEnter your marks[0-100]: ");
-  if(scanf("%f",&marks)){
+
+  if(scanf("%f",&marks) == 1){
     do{
       printf("\ninvalid marks,\nEnter your marks again[0-100]: ");
       scanf("%f",&marks);
