@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int primeCheck(int num);
+bool primeCheck(int num);
 
 int main(void) {
   int num = 0;
@@ -16,13 +16,18 @@ int main(void) {
       printf("\n%d is a prime number\n",num);
     }
     else{
-      printf("\n%d is a composite number\n",num);
+      if(num < 2){
+        printf("\n%d is not a prime number\n",num);
+      }
+      else{
+        printf("\n%d is a composite number\n",num);
+      }
     }
   }
   return 0;
 }
 
-int primeCheck(int num){
+bool primeCheck(int num){
   if(num <= 1){//checks if less than 1
     return false;
   }
@@ -36,7 +41,6 @@ int primeCheck(int num){
   for(long int i = 5;i*i <= num;i += 6){// here, i is 5 and then 11 and i + 2 is 13 which checks if the number is divisible by any of the prime number
     if(num % i == 0 || num % (i+2) == 0){
       return false;
-      break;
     }
   }
   return true;
